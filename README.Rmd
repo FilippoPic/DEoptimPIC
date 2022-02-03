@@ -1,0 +1,65 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# DEoptimPIC
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+DEoptimPIC provides some interesting tools and benchmark functions to test three
+different versions of the differential evolution algorithm. The Differential evolution
+algorithm is a nature inspired algorithm used for solving global optimization problems.
+Often it is also used for solving not complex constrained optimization problems.
+This package proposes the following DE versions:
+
+- BaseDE: the standard DE algorithm for solving optimization problems, provided with 4 
+mutation strategies
+- MDE: a modified version of the DE that automatically select a strategy from a pool of
+2 with different probabilities
+- SAmDE: a modified version of the DE that selects, based on a probability, the mutation strategy from a 
+pool of 4 strategies
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+``` r
+# install.packages("devtools")
+devtools::install_github("FilippoPic/DEoptimPIC")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(DEoptimPIC)
+l <- -500
+u <- 500
+n <- 10
+NP <- 40
+n_gen <- 400
+f <- 0.9
+CR <- 0.4
+#to perform a standard DE run with strategy DE/rand/1
+d <- DEbase(schwefel,l,u,n,NP,n_gen,f,CR,strategy = 1)
+```
+
+Now you can see the best value found by the algorithm:
+
+```{r results}
+d$f_best
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
