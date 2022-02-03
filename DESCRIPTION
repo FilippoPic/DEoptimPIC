@@ -3,7 +3,7 @@ Type: Package
 Title: DEoptimPIC provides some interesting tools and benchmark functions to test three different versions of the differential evolution algorithm
 Version: 0.1.0
 Author: Filippo Piccotto
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: <filippo.piccotto@gmail.com>
 Description: DEbase is the standard DE algorithm, MDE is the Modified DE, SAmDE is the Self Adaptive modified DE; then a set of benchmark functions is proposed.
 License: MIT + file LICENSE
 Encoding: UTF-8
