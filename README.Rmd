@@ -62,3 +62,8 @@ Now you can see the best value found by the algorithm:
 d$f_best
 ```
 
+Or see the convergence plot:
+```{r results2}
+plot(d$f,type='l', col = 2)
+plot(log(d$f),type='l',col=2)
+```

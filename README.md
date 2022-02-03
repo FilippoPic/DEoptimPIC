@@ -51,5 +51,19 @@ Now you can see the best value found by the algorithm:
 
 ``` r
 d$f_best
-#> [1] 0.0008825307
+#> [1] 0.003388758
 ```
+
+Or see the convergence plot:
+
+``` r
+plot(d$f,type='l', col = 2)
+```
+
+<img src="man/figures/README-results2-1.png" width="100%" />
+
+``` r
+plot(log(d$f),type='l',col=2)
+```
+
+<img src="man/figures/README-results2-2.png" width="100%" />
