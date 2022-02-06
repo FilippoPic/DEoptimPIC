@@ -65,9 +65,14 @@ DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,budget = 0,...)
   for (j in 1:NP) {
     x[j,] <- runif(n,lo,up)
   }
+
+  if (budget == 1)
+  {
   #vectors normalization
-  #s<-apply(x,1,sum)
-  #x=x/s
+  s<-apply(x,1,sum)
+  x=x/s
+  }
+  else
   f_x = objfun(x,...)
   #loop start
   for (g in 1:n_gen)
