@@ -10,7 +10,8 @@
 #' @param n_gen number of generations (~ ten times the value of NP)
 #' @param f F value (usually from 0.1 to 1.1)
 #' @param CR crossover rate (it is a probability, should stay between 0 and 1)
-#' @param strategy type of strategy implemented
+#' @param strategy type of strategy implemented. Default to DE/RAND/1
+#' @param budget specifies if there is a budget constraint or not, in order to normalize crossover vectors to sum up 1. Default to 0 (no normalization). If budget =1, then normalization applies.
 #' @param ... parameters to pass at objective function to optimize
 #'
 #' @return The output of the function \code{DEbase} is a list (of length 3) containing the following elements:\cr
@@ -51,7 +52,7 @@
 #' an updated survey}. Swarm and evolutionary computation, vol. 23, 2016, pp. 1--30
 #'
 
-DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
+DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,budget = 0,...)
 {
 
   #objective function definition
@@ -328,23 +329,30 @@ DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
       A = u<L
       B = u>U
     }
-    #Normalizzazione dei vettori riga in u con procedura di Tarkur
-    #s = apply(u,1,sum)
-    #for (p in 1:NP)
-    #{
-    #  if (s[p]>1)
-    #  {
-    #    id = u[p,]>0
-    #    dw = (1-sum(L[p,id]))/sum(u[p,id]-L[p,id])
-    #    u[p,id] = L[p,id]+dw*(u[p,id]-L[p,id])
-    #  }
-    #  if (s[p]<1)
-    #  {
-    #    id = u[p,]>0
-    #    dw = (sum(U[p,id])-1)/sum(U[p,id]-u[p,id]);
-    #    u[p,id] = U[p,id]-dw*(U[p,id]-u[p,id]);
-    #  }
-    #}
+
+    #Tarkur normalization
+
+    if (budget == 1)
+    {
+    s = apply(u,1,sum)
+    for (p in 1:NP)
+    {
+      if (s[p]>1)
+        {
+          id = u[p,]>0
+          dw = (1-sum(L[p,id]))/sum(u[p,id]-L[p,id])
+          u[p,id] = L[p,id]+dw*(u[p,id]-L[p,id])
+        }
+        if (s[p]<1)
+        {
+          id = u[p,]>0
+          dw = (sum(U[p,id])-1)/sum(U[p,id]-u[p,id]);
+          u[p,id] = U[p,id]-dw*(U[p,id]-u[p,id]);
+        }
+      }
+    }
+    else
+    {
     #Processo finale di selezione
     f_u = objfun(u,...)
     site = f_u<=f_x
@@ -357,6 +365,7 @@ DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
     id_best = which.min(f_x)
     x_best[g,] = x[id_best,]
     f_best[g] = f_x[id_best]
+    }
   }
 
   fu_best = f_best[n_gen]

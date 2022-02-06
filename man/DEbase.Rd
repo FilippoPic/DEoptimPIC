@@ -4,7 +4,7 @@
 \alias{DEbase}
 \title{Base DE}
 \usage{
-DEbase(funcname, lo, up, n, NP, n_gen, f, CR, strategy, ...)
+DEbase(funcname, lo, up, n, NP, n_gen, f, CR, strategy = 1, budget = 0, ...)
 }
 \arguments{
 \item{funcname}{function to optimize}
@@ -23,7 +23,9 @@ DEbase(funcname, lo, up, n, NP, n_gen, f, CR, strategy, ...)
 
 \item{CR}{crossover rate (it is a probability, should stay between 0 and 1)}
 
-\item{strategy}{type of strategy implemented}
+\item{strategy}{type of strategy implemented. Default to DE/RAND/1}
+
+\item{budget}{specifies if there is a budget constraint or not, in order to normalize crossover vectors to sum up 1. Default to 0 (no normalization). If budget =1, then normalization applies.}
 
 \item{...}{parameters to pass at objective function to optimize}
 }
