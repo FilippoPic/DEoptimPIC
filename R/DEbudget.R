@@ -32,7 +32,7 @@
 #' an updated survey}. Swarm and evolutionary computation, vol. 23, 2016, pp. 1--30
 #' Inserire reference per la procedura takkur
 
-DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,...)
+DEbudget <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,...)
 {
 
   #objective function definition
