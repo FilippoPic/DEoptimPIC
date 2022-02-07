@@ -51,7 +51,7 @@
 #' an updated survey}. Swarm and evolutionary computation, vol. 23, 2016, pp. 1--30
 #'
 
-DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,...)
+DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
 {
 
   #objective function definition

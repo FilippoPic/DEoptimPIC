@@ -4,7 +4,7 @@
 \alias{DEbase}
 \title{Base DE}
 \usage{
-DEbase(funcname, lo, up, n, NP, n_gen, f, CR, strategy = 1, ...)
+DEbase(funcname, lo, up, n, NP, n_gen, f, CR, strategy, ...)
 }
 \arguments{
 \item{funcname}{function to optimize}

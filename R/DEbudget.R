@@ -11,7 +11,7 @@
 #' @param n_gen number of generations (~ ten times the value of NP)
 #' @param f F value (usually from 0.1 to 1.1)
 #' @param CR crossover rate (it is a probability, should stay between 0 and 1)
-#' @param strategy type of strategy implemented. Default to DE/RAND/1
+#' @param strategy type of strategy implemented.
 #' @param ... parameters to pass at objective function to optimize
 #'
 #' @return The output of the function \code{DEbase} is a list (of length 3) containing the following elements:\cr
@@ -32,7 +32,7 @@
 #' an updated survey}. Swarm and evolutionary computation, vol. 23, 2016, pp. 1--30
 #' Inserire reference per la procedura takkur
 
-DEbudget <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy = 1,...)
+DEbudget <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
 {
 
   #objective function definition

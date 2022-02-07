@@ -4,7 +4,7 @@
 \alias{DEbudget}
 \title{Budget DE}
 \usage{
-DEbudget(funcname, lo, up, n, NP, n_gen, f, CR, strategy = 1, ...)
+DEbudget(funcname, lo, up, n, NP, n_gen, f, CR, strategy, ...)
 }
 \arguments{
 \item{funcname}{function to optimize}
@@ -23,7 +23,7 @@ DEbudget(funcname, lo, up, n, NP, n_gen, f, CR, strategy = 1, ...)
 
 \item{CR}{crossover rate (it is a probability, should stay between 0 and 1)}
 
-\item{strategy}{type of strategy implemented. Default to DE/RAND/1}
+\item{strategy}{type of strategy implemented.}
 
 \item{...}{parameters to pass at objective function to optimize}
 }
