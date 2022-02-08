@@ -176,7 +176,7 @@ MDE <- function(funcname,lo,up,n,NP,n_gen,...)
     }
     #Crossover binario
     r = matrix(runif(NP*n),nrow = NP,ncol=n)
-    si = sample(1:n,NP)
+    si = sample(1:n,NP,replace = TRUE)
     mat1 = matrix( ,nrow = NP, ncol = n)
     for (k in 1:NP)
     {
