@@ -305,7 +305,7 @@ DEbase <- function(funcname,lo,up,n,NP,n_gen,f,CR,strategy,...)
     }
     #Crossover binario
     r = matrix(runif(NP*n),nrow = NP,ncol=n)
-    si = sample(1:NP,NP)
+    si = sample(1:n,NP)
     mat1 = matrix( ,nrow = NP, ncol = n)
     for (k in 1:NP)
     {
